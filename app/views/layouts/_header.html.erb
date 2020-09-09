@@ -1,0 +1,30 @@
+
+<nav class="navbar navbar-light">
+    <!-- Brand Info -->
+     <div class="row">
+        <%= link_to image_tag("pharmacy.png", alt: "Pharmacy logo"), root_path %>
+    </div>
+    <div class="row">
+        <ul class="nav nav-stacked navbar-left nav-pills">
+            <a class="navbar-brand mb-0 h1">Pharmacie Errachidia</a> 
+            <h6 class= "pad headers">Tableau de Bord</h6>                        
+            <li class="nav-link"><%= link_to "Acceuil", root_path %></li>
+            <li class="nav-link"><%= link_to "Inventaire", stocks_path %></li>
+            <h6 class= "pad headers">Actions</h6>
+<li class="nav-link"><%= link_to "Vendre", new_sale_path %></li>
+            <li class="nav-link"><%= link_to 'Ajouter Médicaments au système', new_medicine_path, 
+            data: { modal: true } %></li>
+			<li class="nav-link"><%= link_to "Ajouter Bon de Livraison", new_bl_path %></li>
+			<h6 class= "pad headers">Archives</h6>
+            <li class="nav-link"><%= link_to "Historique des Ventes", sales_path %></li>
+            <li class="nav-link"><%= link_to "Liste des Employés", employees_path %></li>
+            <li class="nav-link"><%= link_to "Liste des Fournisseurs", providers_path %></li>
+            <div id="modal-holder"></div>
+            <% if logged_in? %>
+                <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+            <% else %>
+                <li><% link_to "Log in", login_path %></li>
+            <% end %>
+        </ul>
+    </div>
+</nav>

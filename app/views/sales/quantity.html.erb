@@ -1,0 +1,16 @@
+<% provide(:title, 'Sell: Step 2') %>
+<!DOCTYPE html>
+<html>
+	<body>		
+		<%= form_for(@sale) do |f| %>
+
+			<%= f.label :quantity_sold, "Quantité à acheter maximale: " %>
+
+			<%= f.label Stock.find(Sale.last.stock_id).medicine_qt%>
+			<%= f.number_field :quantity_sold, :required => true ,max: Stock.find(Sale.last.stock_id)%>
+			<%= f.hidden_field :total_price, :value => "0.34".to_f %>
+	
+   			<%= f.submit "Ajouter", class: "btn btn-primary"%>
+		<% end %>
+	</body>
+</html>

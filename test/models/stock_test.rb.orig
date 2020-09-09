@@ -1,0 +1,17 @@
+<<<<<<< HEAD
+require 'test_helper'
+
+class StockTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
+||||||| merged common ancestors
+=======
+require 'test_helper'
+
+class StockTest < ActiveSupport::TestCase
+
+
+end
+>>>>>>> modals

@@ -1,0 +1,15 @@
+
+<%= simple_form_for(@medicine, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+   
+<div class="modal-body">
+        <%= f.input :name, label: "Nom du Médicament", error: "Erreur: ne peut pas être blanc." %>
+        <%= f.input :barcode, label: "Code Barre"%>
+        <%= f.input :active_substance, label: "Substance Active"%>
+        <%= f.input :unit_gram, label: "U.G"%>
+        <%= f.input :unit, collection: ['G', 'ML', 'MG', 'μG', '%', 'UI', 'MUI', 'UI ANTI-XA'], label: "Unité de l'U.G"%>
+        <%= f.hidden_field :tva, :value => 0.20 %>
+</div>
+<div class="modal-footer">
+   	<%= submit_tag "Ajouter", class: "btn btn-primary" %>
+</div>
+<% end %>

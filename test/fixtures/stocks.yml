@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bl_id: 1
+  medicine_id: 1
+  medicine_qt: 1
+  qt_sold: 1
+  pph: 1.5
+  expiration: 2017-12-10
+
+two:
+  bl_id: 1
+  medicine_id: 1
+  medicine_qt: 1
+  qt_sold: 1
+  pph: 1.5
+  expiration: 2017-12-10

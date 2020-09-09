@@ -1,0 +1,32 @@
+<% provide(:title, "S'inscrire") %>
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class="center">
+			<%= form_for(@user) do |f| %>
+				<%= render 'shared/error_messages' %>
+
+     			<%= f.label :name %>
+      			<%= f.text_field :name, class: 'form-control' %>
+
+      			<%= f.label :occupation %>
+<<<<<<< HEAD
+      			<%= f.select :occupation, ['Administrateur', 'Pharmacien', 'Interne'], class: 'form-control'%>
+||||||| merged common ancestors
+      			<%= f.select :occupation, ['Admin', 'Pharmacist', 'Intern'], class: 'form-control'%>
+=======
+      			<%= f.select :occupation, ['Admin', 'Pharmacist', 'Intern'], class: 'form-control'%>
+        
+>>>>>>> origin/final_branch
+
+     			<%= f.label :password %>
+      			<%= f.password_field :password, class: 'form-control' %>
+
+      			<%= f.label :password_confirmation, "Confirmation" %>
+      			<%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      		<%= f.submit "Créer mon compte", class: "btn btn-primary" %>
+    		<% end %>
+		</div>
+	</body>
+</html>

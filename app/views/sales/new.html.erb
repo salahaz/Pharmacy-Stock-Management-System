@@ -1,0 +1,16 @@
+<% provide(:title, 'Vendre: étape 1') %>
+<!DOCTYPE html>
+<html>
+	<body>		
+		<%= form_for(@sale) do |f| %>
+
+			<%= f.label :stock_id, "Nom du médicament" %>
+			<%= f.collection_select :stock_id, Stock.all, :id, :medicine_name %>
+
+			<%= f.hidden_field :quantity_sold, :value => "10.3".to_f %>
+			<%= f.hidden_field :total_price, :value => "0.35".to_f %>
+	
+   			<%= f.submit "Ajouter", class: "btn btn-primary"%>
+		<% end %>
+	</body>
+</html>

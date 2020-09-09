@@ -1,0 +1,138 @@
+<% provide(:title, "Acceuil") %>
+<!DOCTYPE html>
+
+<html>
+	<body>
+		<div class="container-fluid">
+		<div class="row">
+		<div class= "col-sm-6">
+		<h3  style="text-align:center">Dernier Arrivage de Médicaments</h3>
+		 <table style="width:100%" class="table table-striped table-hover">
+		 <thead class="thead-dark">
+  <tr>
+    <th>Médicaments</th>
+    <th>Quantité</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% if @last_arrived != nil -%>
+	<% @last_arrived.each do |stock, n| %>
+  		<tr>
+  			<th scope="row"><%= n %></th>
+    		<td>
+      			<%= link_to Medicine.find_by_id(stock.medicine_id).name.to_s, stock %>
+    		</td>
+    		<td>
+    			<%= link_to stock.medicine_qt, stock %>
+   		 	</td>
+   		</tr>
+	<% end %>
+	<% end %>
+  </tbody>
+</table>
+ 
+<h3  style="text-align:center">Médicaments proche périmés</h3>
+		 <table style="width:100%" class="table table-striped table-hover">
+		 <thead class="thead-dark">
+  <tr>
+    <th>Médicaments</th>
+    <th>Quantité</th>
+	<th>Date de Péremp.</th>
+  </tr>
+  </thead>
+  <tbody>
+	<% if @near_expired != nil -%>
+	<% @near_expired.each do |stock, n| %>
+  		<tr>
+  			<th scope="row"><%= n %></th>
+    		<td>
+      			<%= link_to Medicine.find_by_id(stock.medicine_id).name.to_s, stock %>
+    		</td>
+    		<td>
+    			<%= link_to stock.medicine_qt, stock %>
+   		 	</td>
+			<td>
+    			<%= link_to stock.expiration, stock %>
+   		 	</td>
+   		</tr>
+	<% end %>
+  	<% end %>
+  </tbody>
+</table> 
+
+
+</div>
+<div class= "col-sm-6">
+<canvas id="Chart1" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("Chart1").getContext('2d');
+var Chart1 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Amoxil 1G", "Doliprane 500MG", "Rhinomycine", "Doliprane 1G"],
+        datasets: [{
+            label: 'Médicaments sortis aujourd\'hui',
+            data: [12, 19, 3, 5],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+<canvas id="Chart2" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("Chart2").getContext('2d');
+var Chart2 = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["", "", "", ""],
+        datasets: [{
+            label: 'Revenu',
+            data: [5, 10, 14, 18],
+            backgroundColor: [
+                'rgba(255, 255, 255, 0)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:false
+                }
+            }]
+        }
+    }
+});
+</script>
+</div>
+</div>
+			
+			<!--<p>This provides an overview of the inventory, expiring drugs, profits and drugs sold through a certain period</p>-->
+		</div>
+	</body>
+</html>

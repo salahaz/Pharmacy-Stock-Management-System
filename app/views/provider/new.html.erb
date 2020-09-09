@@ -1,0 +1,22 @@
+<% provide(:title, "Créer un Fournisseur") %>
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class="center">
+			<%= form_for @provider do |f| %>
+				<%= render 'shared/providers_error_messages' %>
+
+     			<%= f.label :name %>
+      			<%= f.text_field :name, class: 'form-control' %>
+
+      			<%= f.label :address %>
+      			<%= f.text_field :address, class: 'form-control' %>
+
+     			<%= f.label :phone %>
+      			<%= f.text_field :phone, class: 'form-control' %>
+
+      		<%= f.submit "Créer un Fournisseur", class: "btn btn-primary" %>
+    		<% end %>
+		</div>
+	</body>
+</html>

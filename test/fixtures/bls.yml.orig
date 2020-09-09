@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider_id: 1
+  order_id: 1
+  user_id: 1
+  date_confirmed: 2017-12-10
+  is_confirmed: false
+
+two:
+  provider_id: 1
+  order_id: 1
+  user_id: 1
+  date_confirmed: 2017-12-10
+  is_confirmed: false
+||||||| merged common ancestors
+=======
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+>>>>>>> modals

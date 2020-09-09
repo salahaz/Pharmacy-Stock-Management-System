@@ -1,0 +1,55 @@
+<% provide(:title, 'Add to Stock') %>
+<!DOCTYPE html>
+<html>
+	<body>
+		<%= simple_form_for(@stock) do |f| %>
+			<div class="row">
+				<div class="col-sm-5">
+				<div class="row">
+					<%= f.label :bl_id, "ID de la commande No: " + $active_bl.order_id.to_s %>
+					</div>
+					<div class="row">
+					<%= f.label :bl_id, "Fournisseur : " + Provider.find_by_id($active_bl.provider_id).name.to_s %>
+					</div>
+					<!--<%= f.collection_select :bl_id, Bl.all, :id, :order_id, label: "Order ID" %>-->
+					<!--<%= f.text_field :bl_id, placeholder: $active_bl.order_id ,:disabled => true%>-->
+					<%= f.hidden_field :bl_id, :value => $active_bl.id %>
+				</div>
+				<div class="col-lg-7">
+				<%= f.label :medicine_id, "Nom du médicament" %>
+			<%= f.collection_select :medicine_id, Medicine.all, :id, :name %>
+			</div>
+			</div>
+			
+			<div class="row">
+			<%= f.label :medicine_qt, "Quantité" %>
+			<%= f.number_field :medicine_qt %>
+
+        	
+        	<%= f.hidden_field :qt_sold, :value => 0 %>
+
+        	<%= f.label :pph, "PPH" %>
+			<%= f.number_field :pph %>
+
+        	<%= f.hidden_field :ppv, :value => 0 %>
+
+        	<%= f.label :expiration, "Expiration" %>
+			<%= f.date_field :expiration %>
+        	</div>
+			<div class="row">
+			<div class="col-sm-6">
+			<div class="col-sm-4">
+   			<%= submit_tag "Add", class: "btn btn-primary"%>
+			</div>
+			</div>
+			<div class="col-sm-6">
+			<div class="col-sm-6">
+			</div>
+			<div class="col-sm-0">
+			<%= f.button :button ,'Add & Finalize',type: 'submit', name: "subaction",value: 0, class: "btn btn-success"%>
+			</div>
+			</div>
+		</div>
+		<% end %>
+	</body>
+</html>

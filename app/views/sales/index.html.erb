@@ -1,0 +1,33 @@
+<% provide(:title, 'Ventes') %>
+
+<%= will_paginate %>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+  	<tr>
+  		<th scope="col">#</th>
+  		<th scope="col">Médicament</th>
+  		<th scope="col">Prix total</th>
+  		<th scope="col">Crée le</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<% @sales.each_with_index do |sale, n| %>
+  		<tr>
+  			<th scope="row"><%= n %></th>
+
+    		<td>
+    			<%= link_to Stock.find(sale.stock_id).medicine_name, sale %>
+   		 	</td>
+   		 	<td>
+    			<%= link_to sale.total_price, sale %>
+   		 	</td>
+   		 	<td>
+    			<%= link_to sale.updated_at, sale %>
+   		 	</td>
+   		</tr>
+  	<% end %>
+  </tbody>
+</table>
+
+<%= will_paginate %>

@@ -1,0 +1,14 @@
+<% provide(:title, 'Create Sale') %>
+<!DOCTYPE html>
+<html>
+	<body>		
+		<%= simple_form_for(@sale) do |f| %>
+			<%= f.label :stock_id, "Medicine Name" %>
+			<%= f.collection_select :stock_id, Stock.all, :id, :medicine_id_name%>
+
+		
+        	
+   			<%= submit_tag "Add", class: "btn btn-primary"%>
+		<% end %>
+	</body>
+</html>

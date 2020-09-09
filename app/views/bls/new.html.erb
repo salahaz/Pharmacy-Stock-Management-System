@@ -1,0 +1,14 @@
+<% provide(:title, 'Ajouter un BL') %>
+<!DOCTYPE html>
+<html>
+	<body>
+			<%= simple_form_for(@bl) do |f| %>
+        		<%= f.input :provider_id, label: 'ID du fournisseur', error: "can't be blank" %>
+        		<%= f.input :order_id, label: 'ID de la commande' %>
+        		<%= f.input :user_id, label: 'ID de l\'utilisateur' %>
+        		<%= f.input :finalpph, label: 'Prix d\'achat final', input_html: { min: '0', step: '0.01' } %>
+		
+   				<%= submit_tag "Ajouter", class: "btn btn-primary" %>
+			<% end %>
+	</body>
+</html>

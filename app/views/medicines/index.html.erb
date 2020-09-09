@@ -1,0 +1,32 @@
+<% provide(:title, 'Medicines') %>
+
+<%= will_paginate @medicine %>
+
+<table class="table">
+  <thead class="thead-light">
+  	<tr>
+  		<th scope="col">#</th>
+  		<th scope="col">Medicine</th>
+  		<th scope="col">Barcode</th>
+      <th scopre="col">View</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<% @medicine.each_with_index do |medicine, n| %>
+  		<tr>
+  			<th scope="row"><%= n %></th>
+    		<td>
+      			<%= link_to medicine.name, medicine %>
+    		</td>
+    		<td>
+    			<%= link_to medicine.barcode, medicine %>
+   		 	</td>
+   		 	<td>
+    			<%= link_to 'Plus', root_path %>
+   		 	</td>
+   		</tr>
+  	<% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @medicine %>

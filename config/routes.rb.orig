@@ -1,0 +1,65 @@
+Rails.application.routes.draw do
+
+<<<<<<< HEAD
+  get 'stocks/new'
+||||||| merged common ancestors
+  get 'stock/new'
+=======
+  get 'sales/new'
+
+  get 'sales/update'
+
+  get 'sales/index'
+
+  get 'stock/new'
+>>>>>>> origin/final_branch
+
+  get 'sessions/new'
+
+<<<<<<< HEAD
+  #match '/stocks/new/', to: 'stock#new', as: 'new_stocks'
+  root 'static_pages#overview'
+||||||| merged common ancestors
+  root 'static_pages#overview'
+=======
+  root 'sessions#new'
+>>>>>>> origin/final_branch
+  get '/inventory', to: 'static_pages#inventory'
+  get '/overview', to: 'static_pages#overview'
+  get '/orderhistory', to: 'static_pages#orderhistory'
+  get '/finances', to: 'static_pages#finances'
+  get '/employees', to: 'users#index'
+  get '/providers', to: 'provider#index'
+  get '/addprovider', to:'provider#new'
+  get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  get '/bls/index', to: 'bls#index'
+<<<<<<< HEAD
+  get '/stocks', to: "stocks#index"
+||||||| merged common ancestors
+  get '/stock', to: "stocks#index"
+=======
+  get '/stock', to: "stocks#index"
+  get '/sales/quantity', to: "sales#quantity"
+>>>>>>> origin/final_branch
+  post '/login', to: 'sessions#create'
+  post '/providers', to: 'provider#create'
+  delete '/logout', to: 'sessions#destroy'
+
+
+  resources :users
+  resources :medicines
+  resources :bls
+  resources :stocks
+<<<<<<< HEAD
+  resources :providers
+  
+
+||||||| merged common ancestors
+
+=======
+  resources :sales
+  resources :sales_steps
+>>>>>>> origin/final_branch
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end

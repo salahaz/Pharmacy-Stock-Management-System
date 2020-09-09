@@ -1,0 +1,38 @@
+class Medicine < ApplicationRecord
+
+<<<<<<< HEAD
+	before_save { self.name = self.name.upcase }
+	before_save { active_substance.upcase! } 
+	
+	validates :name, presence: true, length: { maximum: 49 }
+	validates :barcode, numericality: { only_integer: true } , presence: true, uniqueness: { case_sensitive: false }
+	validates :active_substance, presence: true, length: { maximum: 49 }
+	validates :unit_gram, :numericality => true , presence: true
+	validates :unit, presence: true
+||||||| merged common ancestors
+	validates :name, presence: true, length: { maximum: 74 }
+	validates :barcode, presence: true
+	validates :active_substance, presence: true
+	validates :unit_gram, presence: true
+=======
+	validates :name, presence: true, length: { maximum: 74 }
+	#validates :barcode, presence: true You are not forced to put the Barcode
+	#validates :active_substance, presence: true You are not forced to put the active substance
+	#validates :unit_gram, presence: true This is not obligatory either
+>>>>>>> ass-receipt-tier
+	validates :tva, presence: true
+
+	has_many :stocks
+<<<<<<< HEAD
+	has_many :bls, through: :stocks
+
+	validates_presence_of :name
+	
+
+||||||| merged common ancestors
+	has_many :bls, through: :stocks
+=======
+	has_many :bls, through :stocks
+	has_one :tier
+>>>>>>> ass-receipt-tier
+end

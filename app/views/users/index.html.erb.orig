@@ -1,0 +1,43 @@
+<% provide(:title, 'Liste des Employés') %>
+
+<%= will_paginate %>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+  	<tr>
+  		<th scope="col">#</th>
+<<<<<<< HEAD
+  		<th scope="col">Nom</th>
+  		<th scope="col">Poste</th>
+||||||| merged common ancestors
+  		<th scope="col">Name</th>
+  		<th scope="col">Occupation</th>
+=======
+  		<th scope="col">Name</th>
+  		<th scope="col">Occupation</th>
+      <th scopre="col">Action</th>
+>>>>>>> origin/final_branch
+  	</tr>
+  </thead>
+  <tbody>
+  	<% @users.each_with_index do |user, n| %>
+  		<tr>
+  			<th scope="row"><%= n %></th>
+    		<td>
+      			<%= link_to user.name, user %>
+    		</td>
+    		<td>
+    			<%= link_to user.occupation, user %>
+   		 	</td>
+        <% if current_user.admin? && !current_user?(user) %>
+          <td>
+            <%= link_to "delete", user, method: :delete %>
+          </td>
+        <% end %>
+   		</tr>
+  	<% end %>
+  </tbody>
+</table>
+<%= link_to "Ajouter Utilisateur", signup_path , class: "btn btn-primary"%>
+
+<%= will_paginate %>

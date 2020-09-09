@@ -1,0 +1,68 @@
+
+<nav class="navbar navbar-light">
+    <!-- Brand Info -->
+     <div class="row">
+        <%= link_to image_tag("pharmacy.png", alt: "Pharmacy logo"), root_path %>
+    </div>
+    <div class="row">
+        <ul class="nav nav-stacked navbar-left nav-pills">
+<<<<<<< HEAD
+            <a class="navbar-brand mb-0 h1">Pharmacie Errachidia</a> 
+            <h6 class= "pad headers">Tableau de Bord</h6>                        
+            <li class="nav-link"><%= link_to "Acceuil", root_path %></li>
+            <li class="nav-link"><%= link_to "Inventaire", stocks_path %></li>
+			<li class="nav-link"><%= link_to "Chaland", orderhistory_path %></li>
+            <h6 class= "pad headers">Actions</h6>
+             <li class="nav-link"><a href="#" data-toggle="" data-target="">Vendre</a></li>
+            <li class="nav-link"><%= link_to 'Ajouter Médicaments au système', new_medicine_path, 
+||||||| merged common ancestors
+            <a class="navbar-brand mb-0 h1">Errachidia Pharmacy</a> 
+            <h6 class= "pad headers">DASHBOARDS</h6>                        
+            <li class="nav-link"><%= link_to "Overview", root_path %></li>
+            <li class="nav-link"><%= link_to "Inventory", stocks_path %></li>
+			<li class="nav-link"><%= link_to "Chalands", orderhistory_path %></li>
+            <h6 class= "pad headers">ACTIONS</h6>
+             <li class="nav-link"><a href="#" data-toggle="" data-target="">Sell Medicine</a></li>
+            <li class="nav-link"><%= link_to 'Add Medicine', new_medicine_path, 
+=======
+            <a class="navbar-brand mb-0 h1">Errachidia Pharmacy</a> 
+            <h6 class= "pad headers">DASHBOARDS</h6>                        
+            <li class="nav-link"><%= link_to "Overview", overview_path %></li>
+            <li class="nav-link"><%= link_to "Inventory", stocks_path %></li>
+			<li class="nav-link"><%= link_to "Order History", sales_path%></li>
+            <h6 class= "pad headers">ACTIONS</h6>
+            <li class="nav-link"><%= link_to "Sell Medicine", new_sale_path %></li>
+            <li class="nav-link"><%= link_to 'Add Medicine', new_medicine_path, 
+>>>>>>> origin/final_branch
+            data: { modal: true } %></li>
+<<<<<<< HEAD
+			<li class="nav-link"><%= link_to "Ajouter Bon de Livraison", new_bl_path %></li>
+			<h6 class= "pad headers">Archives</h6>
+            <li class="nav-link"><%= link_to "Historique des Commandes", orderhistory_path %></li>
+            <li class="nav-link"><%= link_to "Historique des Finances", finances_path %></li>
+            <li class="nav-link"><%= link_to "Liste des Employés", employees_path %></li>
+            <li class="nav-link"><%= link_to "Liste des Fournisseurs", providers_path %></li>
+||||||| merged common ancestors
+			<li class="nav-link"><%= link_to "Add Delivery Ticket", new_bl_path %></li>
+            <li class="nav-link"><%= link_to "Add to Stock", new_stock_path %></li>
+			<h6 class= "pad headers">ARCHIVE</h6>
+            <li class="nav-link"><%= link_to "Order History", orderhistory_path %></li>
+            <li class="nav-link"><%= link_to "Finances", finances_path %></li>
+            <li class="nav-link"><%= link_to "Employees", employees_path %></li>
+            <li class="nav-link"><%= link_to "Providers", providers_path %></li>
+=======
+			<li class="nav-link"><%= link_to "Add Delivery Ticket", new_bl_path %></li>
+            <li class="nav-link"><%= link_to "Add to Stock", new_stock_path %></li>
+			<h6 class= "pad headers">ARCHIVE</h6>
+            <li class="nav-link"><%= link_to "Employees", employees_path %></li>
+            <li class="nav-link"><%= link_to "Providers", providers_path %></li>
+>>>>>>> origin/final_branch
+            <div id="modal-holder"></div>
+            <% if logged_in? %>
+                <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+            <% else %>
+                <li><% link_to "Log in", login_path %></li>
+            <% end %>
+        </ul>
+    </div>
+</nav>

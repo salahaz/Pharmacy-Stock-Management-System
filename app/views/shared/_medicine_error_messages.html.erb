@@ -1,0 +1,12 @@
+<% if @medicine.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      Le document contient <%= pluralize(@medicine.errors.count, "erreur") %>.
+    </div>
+    <ul>
+    <% @medicine.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

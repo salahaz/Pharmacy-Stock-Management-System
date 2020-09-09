@@ -1,0 +1,21 @@
+class Provider < ApplicationRecord
+
+validates :name, presence: true
+#No need to force the address
+<<<<<<< HEAD
+validates :phone, numericality: { only_integer: true, allow_nil: true  } #, presence: true
+||||||| merged common ancestors
+PHONE_NUMBER_REGEX = /\d/i
+validate :phone, presence: true, format: { with: PHONE_NUMBER_REGEX }
+=======
+PHONE_NUMBER_REGEX = /\d/i
+validates :phone, presence: true, format: { with: PHONE_NUMBER_REGEX }
+>>>>>>> 79844f89f57f53c40d012d76c6c43122097d48c9
+
+<<<<<<< HEAD
+has_many :bls
+||||||| merged common ancestors
+has_many: bls
+=======
+>>>>>>> 79844f89f57f53c40d012d76c6c43122097d48c9
+end

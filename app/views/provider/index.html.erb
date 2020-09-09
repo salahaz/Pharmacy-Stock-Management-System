@@ -1,0 +1,36 @@
+<% provide(:title, 'Liste des Fournisseurs') %>
+
+
+
+<%= will_paginate %>
+
+<table class="table table-striped table-hover">
+  <thead class="thead-dark">
+  	<tr>
+  		<th scope="col">#</th>
+  		<th scope="col">Nom</th>
+  		<th scope="col">Téléphone</th>
+		<th scope="col">Addresse</th>
+  	</tr>
+  </thead>
+  <tbody>
+  	<% @provider.each_with_index do |provider, n| %>
+  		<tr>
+  			<th scope="row"><%= n %></th>
+    		<td>
+      			<%= link_to provider.name, providers_path %>
+    		</td>
+    		<td>
+    			<%= link_to provider.phone, providers_path %>
+   		 	</td>
+			<td>
+    			<%= link_to provider.address, providers_path %>
+   		 	</td>
+   		</tr>
+  	<% end %>
+  </tbody>
+</table>
+
+<%= link_to "Ajouter un Fournisseur", addprovider_path, class: "btn btn-primary" %>
+
+<%= will_paginate %>
